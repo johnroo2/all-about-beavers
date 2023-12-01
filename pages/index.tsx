@@ -1,4 +1,5 @@
 import { useParallax } from "react-scroll-parallax";
+import { TypeAnimation } from "react-type-animation";
 
 export const PolyWave = () => {
   return(
@@ -19,7 +20,7 @@ export const PolyWave = () => {
 
 export default function Index() {
   const ptitle = useParallax<any>({
-    scale: [2, 0.8],
+    scale: [1.5, 1.2],
     translateY: ["-200px", "0px"]
   }).ref
 
@@ -57,9 +58,26 @@ export default function Index() {
       <main className="relative z-[1] pb-[10rem] flex flex-col text-sky-50">
         <div className="h-20 start"/>
         <div className="relative z-[20] h-[500px]">
-          <h1 ref={ptitle} className="absolute text-7xl font-semibold w-full text-center mt-[300px] z-[100]">
-            🪵🦫 All About Beavers 🦫🪵
-          </h1>
+          <div className="absolute left-0 mt-[300px] z-[100] flex flex-col items-start gap-4 
+          origin-left pl-8" 
+          ref={ptitle}>
+            <h1 className="text-7xl font-semibold"> All About Beavers 🦫🪵</h1>
+            <h2 className="text-4xl font-extralight flex flex-row gap-[0.25em]">
+              This is a website about
+              <TypeAnimation
+              sequence={[
+                'beavers',
+                3000,
+                'dams',
+                3000,
+              ]}
+              wrapper="span"
+              speed={50}
+              style={{ fontSize: '2.25rem', display: 'inline-block' }}
+              repeat={Infinity}
+              />
+            </h2>
+            </div>
           <PolyWave/>
         </div>
         <div className="h-[15rem] intermediate w-[500vw] mb-[5rem]"/>
@@ -90,7 +108,7 @@ export default function Index() {
         </div>
         <div ref={p3} className="flex flex-col shadow-xl items-center justify-center mb-[5rem] w-[100vw] gap-4">
           <span className="text-4xl text-center font-semibold">Beavers: Image Gallery</span>
-          <div className="flex flex-row gap-4 p-8 rounded-md bg-white  max-w-[70%] overflow-x-scroll">
+          <div className="flex flex-row gap-4 p-8 rounded-md bg-blue-950/20 max-w-[70%] overflow-x-scroll">
             <img src="/beaver1.jpeg" className="w-[200px] h-auto"/>
             <img src="/beaver2.jpeg" className="w-[200px] h-auto"/>
             <img src="/beaver3.jpeg" className="w-[200px] h-auto"/>
@@ -119,7 +137,7 @@ export default function Index() {
         </div>
         <div ref={p4} className="flex flex-col shadow-xl items-center justify-center mb-[5rem] w-[100vw] gap-4">
           <span className="text-4xl text-center font-semibold">Beaver Dams: Images</span>
-          <div className="flex flex-row gap-4 p-8 rounded-md bg-white  max-w-[70%] overflow-x-scroll">
+          <div className="flex flex-row gap-4 p-8 rounded-md bg-blue-950/20 max-w-[70%] overflow-x-scroll">
             <img src="/bdam1.jpeg" className="w-[200px] h-auto"/>
             <img src="/bdam2.jpeg" className="w-[200px] h-auto"/>
             <img src="/bdam3.jpeg" className="w-[200px] h-auto"/>
